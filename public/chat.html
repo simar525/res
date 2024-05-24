@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="flow">
+        <img src="kpmg.png" id="web">
+        <img src="download.png" id="download" onclick="exportChatHistory();">
+        <flowise-fullchatbot></flowise-fullchatbot>
+        <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            const data = urlParams.get('id');
+            console.log(data);
+        </script>
+        <script type="module">
+            import Chatbot from "https://cdn.jsdelivr.net/gh/Capson/simar@v4/dist/web.js"
+            Chatbot.initFull({
+                chatflowid: "ec8a0802-b5a6-4768-8ce4-c535b7cb0b5e",
+                apiHost: "https://flowise-production-a718.up.railway.app",
+                chatflowConfig: {
+                    qdrantCollection:`${data}`
+                },
+                theme: {
+                    button: {
+                        backgroundColor: "#00338D"
+                    },
+                    chatWindow: {
+                        title: "Resume Synthesizer",
+                        titleAvatarSrc: "",
+                        welcomeMessage: "Welcome to <b>Resume Synthesizer.</b>. Lets shortlist the best candidates as per the JD provided.",
+                        backgroundColor: "#ffffff",
+                        height: "",
+                        width: "",
+                        fontSize: 16,
+                        poweredByTextColor: "#303235",
+                        botMessage: {
+                            backgroundColor: "#f7f8ff",
+                            textColor: "#303235",
+                            showAvatar: true,
+                            avatarSrc: "https://img.icons8.com/nolan/96/chatbot.png",
+                        },
+                        userMessage: {
+                            backgroundColor: "#3B81F6",
+                            textColor: "#ffffff",
+                            showAvatar: true,
+                            avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png",
+                        },
+                        textInput: {
+                            placeholder: "Type your question",
+                            backgroundColor: "#ffffff",
+                            textColor: "#303235",
+                            sendButtonColor: "#3B81F6",
+                        }
+                    }
+                }
+            })
+        </script>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>

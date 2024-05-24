@@ -3,29 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Chat Interface</title>
+    <title>Resume Synthesizer</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="chat-container">
-        <div class="chat-header">
-            <h2>Chat Interface</h2>
-            <button id="clearChatButton">Clear Chat</button>
-            <button id="downloadChatButton">Download Chat</button>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+          <span class="close">&times;</span>
+          <p style="color: blue;">Welcome to the website!</p>
         </div>
-        <div class="chat-messages" id="chatMessages">
-            <!-- Messages will be dynamically added here -->
-        </div>
-        <div class="chat-input">
-            <input type="text" id="messageInput" placeholder="Type your message...">
-            <button id="sendButton">Send</button>
-        </div>
+      </div>
+    
+        <div id="overlay"></div>
+    
+    <div id="logo">
+        <img src="https://img.icons8.com/3d-fluency/94/chatbot.png">
     </div>
-    <!-- Include marked.js library -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <!-- Include JSZip and FileSaver for downloading the chat -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-    <script src="script.js"></script>
+    
+   
+    <div id="title">
+        <h2>Resume Synthesizer</h2>
+        <p id="steps">Step 1: Upload your job description file.</p>
+    </div>
+    <!--<hr id="hr">-->
+    
+    <div id="lottieContainer">
+        <dotlottie-player id="lottieAnimation" src="https://lottie.host/b3458689-1c5a-42bf-989e-022334c0d77f/40ZcnWqOuo.lottie" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
+    </div>
+    
+     <div id="container">
+        <img src="jd.svg" id="visual">
+
+    <div id="flowise">
+        <p id="sub">Upload JD</p>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" id="fileInput" name="files" accept=".docx, .pdf" multiple>
+            <br><br>
+            <input type="submit" value="Upload JD" id="button">
+        </form>
+    </div>
+    <img src="resume.svg" id="visual2" style="display: none;">
+
+    <!-- <div id="job_description">
+        <p>Please upload your job descritpion</p>
+        <form id="uploadJd" enctype="multipart/form-data">
+            <input type="file" id="fileInput" name="files" accept=".docx">
+            <br><br>
+            <input type="submit" value="Upload JD" id="button">
+        </form>
+        
+    </div> -->
+    
+    </div>
+    <div id="fileList"></div> <!-- This will display the uploaded files -->
+
+    <script type="text/javascript" src="script.js"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+    
 </body>
 </html>
